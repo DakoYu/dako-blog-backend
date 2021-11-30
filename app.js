@@ -1,10 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const app = express();
 const apiRouter = require('./routes/apiRouter');
 const userRouter = require('./routes/userRouter');
 const blogRouter = require('./routes/blogRouter');
+
+app.use(morgan('dev'));
 
 app.use(cors());
 

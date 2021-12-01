@@ -14,6 +14,12 @@ app.use(cors());
 app.use(express.json({ limit: '10kb' }));
 app.use(cookieParser());
 
+app.use((req,res,next)=>{
+    req.requestTime = new Date().toISOString();
+    console.log('test');
+    next();
+});
+
 app.use('/api', apiRouter);
 app.use('/api/user', userRouter);
 app.use('/api/blog', blogRouter);
